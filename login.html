@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Khabar Express</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="login-container">
+    <h2>KHABAR EXPRESS</h2>
+
+    <form id="loginForm" autocomplete="off">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Sign In</button>
+        <p id="error"></p>
+    </form>
+
+    <div class="extra-links">
+        <a href="#">Forgot Password?</a>
+        <a href="#">Sign Up</a>
+    </div>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if(user === "admin" && pass === "1234"){
+        window.location.href = "splash.html"; // replace with your next page
+    } else {
+        document.getElementById("error").innerText = "Invalid Username or Password!";
+    }
+});
+</script>
+
+</body>
+</html>
