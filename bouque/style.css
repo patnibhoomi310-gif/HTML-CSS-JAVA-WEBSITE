@@ -1,0 +1,448 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-family:'Poppins',sans-serif;
+
+    overflow:hidden;
+
+
+    background:
+    linear-gradient(135deg,#ffd6e7,#ffe9b5,#ffc8dd);
+
+}
+
+
+
+/* Sparkles */
+
+.sparkles::before{
+
+    content:"✨ ✨ ✨ ✨ ✨ ✨ ✨";
+
+    position:fixed;
+
+    width:100%;
+
+    top:0;
+
+    font-size:35px;
+
+    animation:sparkleMove 8s linear infinite;
+
+    opacity:.7;
+
+}
+
+
+@keyframes sparkleMove{
+
+    from{
+        transform:translateY(100vh);
+    }
+
+    to{
+        transform:translateY(-100vh);
+    }
+
+}
+
+
+
+/* Main Container */
+
+
+.bouquet-container{
+
+    width:390px;
+
+    height:560px;
+
+    position:relative;
+
+    perspective:1000px;
+
+}
+
+
+
+/* All Pages */
+
+
+.cover,
+.flower-page,
+.message-card{
+
+
+    position:absolute;
+
+    inset:0;
+
+
+    background:white;
+
+
+    border-radius:30px;
+
+
+    padding:35px 25px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.25);
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+}
+
+
+
+
+.flower-page,
+.message-card{
+
+    opacity:0;
+
+    transform:scale(0);
+
+    transition:1s;
+
+}
+
+
+
+.show{
+
+    opacity:1 !important;
+
+    transform:scale(1) !important;
+
+}
+
+
+
+/* Heading */
+
+
+h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:42px;
+
+    color:#ff4f81;
+
+    margin:20px;
+
+}
+
+
+
+p{
+
+    color:#555;
+
+    line-height:1.6;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+/* Buttons */
+
+
+button{
+
+
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:50px;
+
+
+    background:
+
+    linear-gradient(45deg,#ff4f81,#ff9a9e);
+
+
+    color:white;
+
+    font-size:16px;
+
+
+    cursor:pointer;
+
+
+    box-shadow:
+
+    0 10px 20px rgba(255,79,129,.4);
+
+
+    transition:.3s;
+
+}
+
+
+
+button:hover{
+
+    transform:scale(1.1);
+
+}
+
+
+
+
+
+/* Closed Bouquet */
+
+
+.closed-bouquet{
+
+
+    font-size:80px;
+
+    animation:bounce 2s infinite;
+
+}
+
+
+
+.buds{
+
+    font-size:70px;
+
+}
+
+
+
+@keyframes bounce{
+
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+}
+
+
+
+
+
+/* Flowers */
+
+
+.flowers{
+
+    height:250px;
+
+    position:relative;
+
+    width:300px;
+
+}
+
+
+
+.flower{
+
+
+    position:absolute;
+
+    font-size:75px;
+
+    opacity:0;
+
+    transform:translateY(100px) scale(0);
+
+
+}
+
+
+
+.flower1{
+
+    left:100px;
+
+    animation:bloom 1s .5s forwards;
+
+}
+
+
+.flower2{
+
+    left:30px;
+
+    top:70px;
+
+    animation:bloom 1s 1s forwards;
+
+}
+
+
+.flower3{
+
+    right:30px;
+
+    top:60px;
+
+    animation:bloom 1s 1.5s forwards;
+
+}
+
+
+
+.flower4{
+
+    left:120px;
+
+    top:80px;
+
+    animation:bloom 1s 2s forwards;
+
+}
+
+
+
+.flower5{
+
+    right:90px;
+
+    top:120px;
+
+    animation:bloom 1s 2.5s forwards;
+
+}
+
+
+
+
+@keyframes bloom{
+
+
+to{
+
+opacity:1;
+
+transform:
+translateY(0)
+scale(1);
+
+}
+
+}
+
+
+
+
+
+/* Ribbon */
+
+
+.wrap{
+
+    font-size:70px;
+
+    margin-top:-20px;
+
+}
+
+
+
+
+
+/* Message Card */
+
+
+.card{
+
+    background:#fff0f5;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    box-shadow:
+
+    inset 0 0 20px #ffc0cb;
+
+}
+
+
+
+.heart{
+
+    font-size:90px;
+
+    animation:heartBeat 1s infinite;
+
+}
+
+
+
+@keyframes heartBeat{
+
+
+50%{
+
+transform:scale(1.2);
+
+}
+
+}
+
+
+
+
+/* Mobile */
+
+
+@media(max-width:450px){
+
+.bouquet-container{
+
+width:90%;
+
+height:530px;
+
+}
+
+
+h1{
+
+font-size:36px;
+
+}
+
+}
