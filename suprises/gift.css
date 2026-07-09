@@ -1,0 +1,687 @@
+/*=========================================
+            RESET
+=========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    overflow:visible;
+    font-family:'Poppins',sans-serif;
+    color:#fff;
+    background:#12031d;
+}
+
+/*=========================================
+            BACKGROUND
+=========================================*/
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top,
+    #ff8ad8 0%,
+    #b64cff 35%,
+    #5a1f8b 65%,
+    #12031d 100%);
+}
+
+#stars,
+#particles{
+    position:absolute;
+    inset:0;
+}
+
+/*=========================================
+            LOADER
+=========================================*/
+
+#loader{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#12031d;
+    z-index:99999;
+}
+
+.loaderBox{
+    width:420px;
+    max-width:90%;
+    text-align:center;
+}
+
+.loaderGift{
+    font-size:90px;
+    animation:bounce 1s infinite;
+}
+
+.loaderBox h2{
+    margin:20px 0;
+    font-size:30px;
+    color:#ffe4f6;
+}
+
+.loadingBar{
+    width:100%;
+    height:15px;
+    border-radius:50px;
+    overflow:hidden;
+    background:rgba(255,255,255,.12);
+}
+
+.loadingFill{
+    width:0;
+    height:100%;
+    border-radius:50px;
+    background:linear-gradient(90deg,#ff3d98,#ff74d4);
+    animation:loading 3s forwards;
+}
+
+@keyframes loading{
+
+from{width:0;}
+
+to{width:100%;}
+
+}
+
+@keyframes bounce{
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+}
+
+/*=========================================
+            HEADER
+=========================================*/
+
+header{
+
+padding-top:50px;
+
+text-align:center;
+
+}
+
+header h1{
+
+font-size:45px;
+
+margin-bottom:15px;
+
+text-shadow:0 0 20px hotpink;
+
+}
+
+header p{
+
+font-size:18px;
+
+color:#ffe3f4;
+
+}
+
+/*=========================================
+            GIFT SECTION
+=========================================*/
+
+.giftSection{
+
+height:65vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+gap:35px;
+
+}
+/*=========================================
+            GIFT BOX
+=========================================*/
+
+#giftBox{
+
+    position:relative;
+
+    width:220px;
+    height:220px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.5s;
+
+    animation:giftFloat 2s ease-in-out infinite;
+
+}
+
+#giftBox:hover{
+
+    transform:scale(1.08);
+
+}
+
+/*=========================================
+            GIFT BODY
+=========================================*/
+
+.giftBody{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:180px;
+    height:150px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:95px;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+    135deg,
+    #ff6bc8,
+    #ff2f92);
+
+    box-shadow:
+    0 0 25px hotpink,
+    0 0 60px rgba(255,20,147,.5);
+
+}
+
+/*=========================================
+            GIFT LID
+=========================================*/
+
+.giftLid{
+
+    position:absolute;
+
+    top:18px;
+
+    width:195px;
+    height:42px;
+
+    border-radius:14px;
+
+    background:linear-gradient(
+    135deg,
+    #ff90dc,
+    #ff4ea8);
+
+    box-shadow:
+    0 0 20px hotpink;
+
+    z-index:5;
+
+    transition:.8s;
+
+}
+
+/*=========================================
+            RIBBONS
+=========================================*/
+
+.giftRibbonVertical{
+
+    position:absolute;
+
+    width:20px;
+    height:150px;
+
+    bottom:0;
+
+    background:#ffe76a;
+
+    border-radius:20px;
+
+    z-index:6;
+
+}
+
+.giftRibbonHorizontal{
+
+    position:absolute;
+
+    width:180px;
+    height:18px;
+
+    bottom:72px;
+
+    background:#ffe76a;
+
+    border-radius:20px;
+
+    z-index:6;
+
+}
+
+/*=========================================
+            OPEN BUTTON
+=========================================*/
+
+#openBtn{
+
+    padding:16px 55px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:white;
+
+    background:linear-gradient(
+    135deg,
+    #ff2f92,
+    #ff73d3);
+
+    box-shadow:
+    0 0 25px hotpink;
+
+    transition:.35s;
+
+}
+
+#openBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 45px hotpink;
+
+}
+
+/*=========================================
+        FLOAT ANIMATION
+=========================================*/
+
+@keyframes giftFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================
+        GLOW EFFECT
+=========================================*/
+
+@keyframes giftGlow{
+
+    0%,100%{
+
+        filter:
+        drop-shadow(0 0 10px hotpink);
+
+    }
+
+    50%{
+
+        filter:
+        drop-shadow(0 0 35px gold);
+
+    }
+
+}
+/*=========================================
+            SURPRISE CARD
+=========================================*/
+
+#surprise{
+
+    display:none;
+
+    width:650px;
+
+    max-width:92%;
+
+    margin:20px auto;
+
+    padding:40px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 0 40px rgba(255,20,147,.35);
+
+    animation:popupShow .8s ease;
+
+}
+
+#surprise h2{
+
+    font-size:38px;
+
+    margin:18px 0;
+
+    color:#fff;
+
+}
+
+#surprise p{
+
+    margin:25px 0;
+
+    line-height:2;
+
+    color:#ffe5f5;
+
+    font-size:18px;
+
+}
+
+.heart{
+
+    font-size:90px;
+
+    animation:heartBeat 1s infinite;
+
+}
+
+@keyframes heartBeat{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.18);
+
+    }
+
+}
+
+/*=========================================
+        NEXT BUTTON
+=========================================*/
+
+#nextBtn{
+
+    padding:16px 55px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#fff;
+
+    background:linear-gradient(
+    135deg,
+    #ff2f92,
+    #ff73d3);
+
+    transition:.35s;
+
+    box-shadow:0 0 25px hotpink;
+
+}
+
+#nextBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 40px hotpink;
+
+}
+
+/*=========================================
+        CONFETTI
+=========================================*/
+
+#confettiContainer{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:999;
+
+}
+
+/*=========================================
+        STARS
+=========================================*/
+
+.star{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    animation:twinkle 3s infinite;
+
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+
+        opacity:.2;
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.8);
+
+    }
+
+}
+
+/*=========================================
+        PARTICLES
+=========================================*/
+
+.particle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:#ffd6f0;
+
+    filter:blur(1px);
+
+    animation:particleMove linear infinite;
+
+}
+
+@keyframes particleMove{
+
+    0%{
+
+        transform:translateY(100vh);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(-120px);
+
+        opacity:0;
+
+    }
+
+}
+
+/*=========================================
+        POPUP EFFECT
+=========================================*/
+
+@keyframes popupShow{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.7);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*=========================================
+        RESPONSIVE
+=========================================*/
+
+@media(max-width:768px){
+
+    header h1{
+
+        font-size:32px;
+
+    }
+
+    header p{
+
+        font-size:16px;
+
+    }
+
+    #giftBox{
+
+        transform:scale(.82);
+
+    }
+
+    #surprise{
+
+        padding:28px;
+
+    }
+
+    #surprise h2{
+
+        font-size:30px;
+
+    }
+
+    #surprise p{
+
+        font-size:16px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .loaderGift{
+
+        font-size:70px;
+
+    }
+
+    .loaderBox h2{
+
+        font-size:22px;
+
+    }
+
+    #giftBox{
+
+        transform:scale(.72);
+
+    }
+
+    #openBtn,
+    #nextBtn{
+
+        width:100%;
+
+    }
+
+}

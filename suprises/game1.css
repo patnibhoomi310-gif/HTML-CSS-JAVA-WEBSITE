@@ -1,0 +1,930 @@
+/*=========================================
+            RESET
+=========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    overflow:hidden;
+
+    color:#fff;
+
+    background:#12031d;
+
+}
+
+/*=========================================
+            BACKGROUND
+=========================================*/
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-10;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top,
+    #8f4cff 0%,
+    #552488 40%,
+    #170320 100%);
+
+}
+
+#stars,
+#particles{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+/*=========================================
+            LOADER
+=========================================*/
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#12031d;
+
+    z-index:99999;
+
+}
+
+.loaderBox{
+
+    width:420px;
+
+    max-width:90%;
+
+    text-align:center;
+
+}
+
+.loaderTeddy{
+
+    font-size:90px;
+
+    animation:bounce 1s infinite;
+
+}
+
+.loaderBox h2{
+
+    margin:20px 0;
+
+    font-size:28px;
+
+    color:#ffd4ec;
+
+}
+
+.loadingBar{
+
+    width:100%;
+
+    height:14px;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.15);
+
+}
+
+.loadingFill{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:50px;
+
+    background:linear-gradient(90deg,
+    hotpink,
+    #ff66c4);
+
+    animation:loading 3s forwards;
+
+}
+
+@keyframes loading{
+
+    from{
+        width:0%;
+    }
+
+    to{
+        width:100%;
+    }
+
+}
+
+/*=========================================
+            INTRO
+=========================================*/
+
+#introScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.78);
+
+    backdrop-filter:blur(10px);
+
+    z-index:9999;
+
+}
+
+.introCard{
+
+    width:520px;
+
+    max-width:92%;
+
+    padding:45px;
+
+    text-align:center;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:0 0 45px rgba(255,20,147,.25);
+
+}
+
+.introTeddy{
+
+    font-size:90px;
+
+    animation:bounce 1.2s infinite;
+
+}
+
+.introCard h1{
+
+    margin-top:15px;
+
+    font-size:42px;
+
+    color:#fff;
+
+}
+
+.introCard p{
+
+    margin:25px 0;
+
+    line-height:1.8;
+
+    color:#ffe4f2;
+
+    font-size:18px;
+
+}
+
+.controls{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:30px;
+
+}
+
+.controlBox{
+
+    width:180px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.07);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    font-size:22px;
+
+}
+
+.controlBox span{
+
+    display:block;
+
+    margin-top:10px;
+
+    font-size:15px;
+
+    color:#ffd2ea;
+
+}
+
+#startBtn{
+
+    padding:16px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:white;
+
+    background:linear-gradient(135deg,
+    #ff2b92,
+    #ff66c4);
+
+    box-shadow:0 0 30px rgba(255,20,147,.35);
+
+    transition:.35s;
+
+}
+
+#startBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 45px hotpink;
+
+}
+
+@keyframes bounce{
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+}
+/*=========================================
+            HUD
+=========================================*/
+
+.hud{
+
+    position:fixed;
+
+    top:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:92%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    z-index:100;
+
+}
+
+.scoreBox,
+.levelBox{
+
+    padding:15px 28px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:0 0 25px rgba(255,20,147,.2);
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+/*=========================================
+            GAME AREA
+=========================================*/
+
+#gameArea{
+
+    position:relative;
+
+    width:100vw;
+
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+/*=========================================
+            GROUND
+=========================================*/
+
+.ground{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:90px;
+
+    background:linear-gradient(
+    to top,
+    rgba(255,105,180,.35),
+    transparent);
+
+    pointer-events:none;
+
+}
+
+/*=========================================
+            TEDDY
+=========================================*/
+
+#teddy{
+
+    position:absolute;
+
+    width:80px;
+
+    height:80px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:65px;
+
+    user-select:none;
+
+    filter:drop-shadow(0 0 18px pink);
+
+    animation:teddyFloat 1.2s infinite;
+
+    transition:.08s linear;
+
+}
+
+@keyframes teddyFloat{
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+}
+
+/*=========================================
+            MONSTER
+=========================================*/
+
+#monster{
+
+    position:absolute;
+
+    width:80px;
+
+    height:80px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:65px;
+
+    filter:drop-shadow(0 0 18px #9d4edd);
+
+    animation:monsterFloat .7s infinite alternate;
+
+}
+
+@keyframes monsterFloat{
+
+    from{
+
+        transform:translateY(-8px);
+
+    }
+
+    to{
+
+        transform:translateY(8px);
+
+    }
+
+}
+
+/*=========================================
+            HEART
+=========================================*/
+
+.heart{
+
+    position:absolute;
+
+    width:48px;
+
+    height:48px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:36px;
+
+    cursor:pointer;
+
+    animation:heartFloat 1.2s infinite;
+
+    filter:
+    drop-shadow(0 0 15px hotpink);
+
+}
+
+@keyframes heartFloat{
+
+    50%{
+
+        transform:
+        translateY(-10px)
+        scale(1.12);
+
+    }
+
+}
+
+/*=========================================
+        GAME MESSAGE
+=========================================*/
+
+#gameMessage{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    transform:translateX(-50%);
+
+    z-index:50;
+
+}
+
+.messageBox{
+
+    padding:14px 30px;
+
+    border-radius:40px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(12px);
+
+    color:#ffe0f3;
+
+    font-size:16px;
+
+    animation:messageGlow 2s infinite;
+
+}
+
+@keyframes messageGlow{
+
+    50%{
+
+        box-shadow:
+        0 0 25px
+        rgba(255,20,147,.4);
+
+    }
+
+}
+
+/*=========================================
+        STARS
+=========================================*/
+
+.star{
+
+    position:absolute;
+
+    background:white;
+
+    border-radius:50%;
+
+    animation:twinkle 3s infinite;
+
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+
+        opacity:.2;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.8);
+
+    }
+
+}
+
+/*=========================================
+        PARTICLES
+=========================================*/
+
+.particle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:#ffd6ec;
+
+    filter:blur(1px);
+
+    animation:particleMove linear infinite;
+
+}
+
+@keyframes particleMove{
+
+    0%{
+
+        transform:translateY(100vh);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(-120px);
+
+        opacity:0;
+
+    }
+
+}
+/*=========================================
+            POPUPS
+=========================================*/
+
+#popup,
+#gameOver{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.78);
+
+    backdrop-filter:blur(10px);
+
+    z-index:9999;
+
+}
+
+.popupBox{
+
+    width:430px;
+
+    max-width:90%;
+
+    padding:40px;
+
+    border-radius:28px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 0 40px rgba(255,20,147,.35);
+
+    animation:popupShow .45s ease;
+
+}
+
+.popupEmoji{
+
+    font-size:70px;
+
+    margin-bottom:15px;
+
+}
+
+.popupBox h2{
+
+    font-size:34px;
+
+    margin-bottom:15px;
+
+}
+
+.popupBox p{
+
+    color:#ffe3f3;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
+
+#nextLevel,
+#restartGame{
+
+    padding:16px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    background:linear-gradient(
+    135deg,
+    #ff2f92,
+    #ff6bc5);
+
+    transition:.3s;
+
+}
+
+#nextLevel:hover,
+#restartGame:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 25px hotpink;
+
+}
+
+@keyframes popupShow{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.7);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*=========================================
+            FOOTER
+=========================================*/
+
+.gameFooter{
+
+    position:fixed;
+
+    bottom:8px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:14px;
+
+    color:#ffd9ee;
+
+    opacity:.8;
+
+    pointer-events:none;
+
+}
+
+/*=========================================
+            RESPONSIVE
+=========================================*/
+
+@media(max-width:768px){
+
+.hud{
+
+flex-direction:column;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+.scoreBox,
+.levelBox{
+
+width:92%;
+
+text-align:center;
+
+}
+
+.introCard{
+
+padding:30px 22px;
+
+}
+
+.introCard h1{
+
+font-size:32px;
+
+}
+
+.introCard p{
+
+font-size:16px;
+
+}
+
+.controlBox{
+
+width:100%;
+
+}
+
+#teddy,
+#monster{
+
+width:65px;
+
+height:65px;
+
+font-size:52px;
+
+}
+
+.heart{
+
+font-size:30px;
+
+}
+
+.popupBox{
+
+padding:28px;
+
+}
+
+.popupBox h2{
+
+font-size:26px;
+
+}
+
+.popupEmoji{
+
+font-size:58px;
+
+}
+
+.messageBox{
+
+width:90%;
+
+font-size:14px;
+
+text-align:center;
+
+}
+
+}
+
+/*=========================================
+        SMALL MOBILE
+=========================================*/
+
+@media(max-width:480px){
+
+.loaderTeddy{
+
+font-size:70px;
+
+}
+
+.loaderBox h2{
+
+font-size:22px;
+
+}
+
+#startBtn,
+#nextLevel,
+#restartGame{
+
+width:100%;
+
+font-size:17px;
+
+}
+
+.introTeddy{
+
+font-size:70px;
+
+}
+
+}

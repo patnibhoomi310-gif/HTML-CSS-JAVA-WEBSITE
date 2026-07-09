@@ -1,0 +1,234 @@
+/*=========================================
+        RESET
+=========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+    height:100vh;
+    background:#0b0016;
+    color:white;
+}
+
+/*=========================================
+        BACKGROUND
+=========================================*/
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top,
+    #ff4da6 0%,
+    #3a0a5c 40%,
+    #12001f 100%);
+    z-index:-3;
+}
+
+#stars,
+#particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.3; transform:scale(.8);}
+    50%{opacity:1; transform:scale(1.6);}
+}
+
+.particle{
+    position:absolute;
+    width:5px;
+    height:5px;
+    background:pink;
+    border-radius:50%;
+    animation:floatUp linear infinite;
+    filter:blur(1px);
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(100vh); opacity:0;}
+    20%{opacity:1;}
+    100%{transform:translateY(-120px); opacity:0;}
+}
+
+/*=========================================
+        HEADER
+=========================================*/
+
+.header{
+    text-align:center;
+    padding:30px 10px;
+}
+
+.header h1{
+    font-size:38px;
+    text-shadow:0 0 20px hotpink;
+}
+
+.header p{
+    margin-top:10px;
+    color:#ffd6f0;
+}
+
+/*=========================================
+        SLIDER
+=========================================*/
+
+.slider{
+    position:relative;
+    width:80%;
+    max-width:700px;
+    height:420px;
+    margin:40px auto;
+    overflow:hidden;
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.2);
+    backdrop-filter:blur(15px);
+
+    box-shadow:0 0 40px rgba(255,0,150,0.25);
+}
+
+/* slides */
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:1s ease;
+    transform:scale(1.1);
+}
+
+.slide.active{
+    opacity:1;
+    transform:scale(1);
+}
+
+/* images */
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* caption */
+
+.caption{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,0.4);
+    padding:10px 18px;
+    border-radius:20px;
+    font-size:16px;
+    color:#fff;
+    backdrop-filter:blur(10px);
+}
+
+/*=========================================
+        CONTROLS
+=========================================*/
+
+.controls{
+    text-align:center;
+    margin-top:10px;
+}
+
+.controls button{
+    padding:12px 22px;
+    margin:0 10px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+    color:white;
+    background:linear-gradient(135deg,#ff007f,#ff5ebc);
+    box-shadow:0 0 20px rgba(255,0,150,0.3);
+    transition:.3s;
+}
+
+.controls button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px hotpink;
+}
+
+/*=========================================
+        TEDDY
+=========================================*/
+
+.teddy{
+    position:fixed;
+    right:25px;
+    bottom:20px;
+    text-align:center;
+    font-size:80px;
+    animation:bounce 2s infinite;
+    filter:drop-shadow(0 0 20px pink);
+}
+
+@keyframes bounce{
+    50%{transform:translateY(-10px);}
+}
+
+.speech{
+    margin-top:8px;
+    font-size:14px;
+    max-width:180px;
+    padding:10px;
+    background:rgba(255,255,255,0.1);
+    border-radius:15px;
+    backdrop-filter:blur(10px);
+}
+
+/*=========================================
+        RESPONSIVE
+=========================================*/
+
+@media(max-width:768px){
+
+    .header h1{
+        font-size:26px;
+    }
+
+    .slider{
+        height:280px;
+        width:90%;
+    }
+
+    .controls button{
+        padding:10px 16px;
+        font-size:13px;
+    }
+
+    .teddy{
+        font-size:60px;
+    }
+
+    .speech{
+        font-size:12px;
+        max-width:140px;
+    }
+}

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Game 2 - Unlock The Gift 🎁</title>
+
+<link rel="stylesheet" href="game2.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!--=================================
+            LOADER
+==================================-->
+
+<div id="loader">
+
+    <div class="loaderBox">
+
+        <div class="loaderGift">
+
+            🎁
+
+        </div>
+
+        <h2>
+
+            Loading Birthday Surprise...
+
+        </h2>
+
+        <div class="loadingBar">
+
+            <div class="loadingFill"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--=================================
+        HOW TO PLAY
+==================================-->
+
+<div id="introScreen">
+
+    <div class="introCard">
+
+        <div class="introEmoji">
+
+            🧸❤️🎁
+
+        </div>
+
+        <h1>
+
+            Unlock The Gift
+
+        </h1>
+
+        <p>
+
+            Teddy found a magical gift.
+
+            <br><br>
+
+            Find all <b>3 Hidden Keys 🔑</b>
+
+            before opening the Birthday Gift.
+
+        </p>
+
+        <div class="controls">
+
+            <div class="controlBox">
+
+                ⌨️
+
+                <span>
+
+                    Move using
+
+                    <br>
+
+                    Arrow Keys / WASD
+
+                </span>
+
+            </div>
+
+            <div class="controlBox">
+
+                🔑
+
+                <span>
+
+                    Collect
+
+                    3 Keys
+
+                </span>
+
+            </div>
+
+            <div class="controlBox">
+
+                🎁
+
+                <span>
+
+                    Touch Gift
+
+                    after collecting
+
+                    all Keys
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <button id="startBtn">
+
+            ❤️ START ❤️
+
+        </button>
+
+    </div>
+
+</div>
+
+<!--=================================
+        BACKGROUND
+==================================-->
+
+<div class="background">
+
+    <div id="stars"></div>
+
+    <div id="particles"></div>
+
+</div>
+
+<!--=================================
+            HUD
+==================================-->
+
+<div class="hud">
+
+    <div class="keysBox">
+
+        🔑 Keys :
+
+        <span id="keyCount">
+
+            0
+
+        </span>/3
+
+    </div>
+
+    <div class="title">
+
+        🎁 Unlock The Birthday Gift
+
+    </div>
+
+</div>
+<!--=================================
+            GAME AREA
+==================================-->
+
+<div id="gameArea">
+
+    <!-- Ground -->
+    <div class="ground"></div>
+
+    <!-- Decorative Bushes -->
+    <div class="bush bush1">🌸</div>
+    <div class="bush bush2">🌼</div>
+    <div class="bush bush3">🌺</div>
+
+    <!-- Clouds -->
+    <div class="cloud cloud1">☁️</div>
+    <div class="cloud cloud2">☁️</div>
+
+    <!-- Teddy -->
+    <div id="teddy">
+
+        🧸
+
+    </div>
+
+    <!-- Hidden Keys -->
+
+    <div class="key" id="key1">
+
+        🔑
+
+    </div>
+
+    <div class="key" id="key2">
+
+        🔑
+
+    </div>
+
+    <div class="key" id="key3">
+
+        🔑
+
+    </div>
+
+    <!-- Gift Box -->
+
+    <div id="giftBox">
+
+        <div class="giftTop"></div>
+
+        <div class="giftBody">
+
+            🎁
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--=================================
+        TEDDY MESSAGE
+==================================-->
+
+<div class="teddySpeech">
+
+    <div class="speechBubble">
+
+        💖 Let's find all the keys!
+
+    </div>
+
+</div>
+
+<!--=================================
+        HINT BOX
+==================================-->
+
+<div id="hintBox">
+
+    <p>
+
+        🌸 Keys may be hidden near flowers,
+        clouds or around the gift...
+
+    </p>
+
+</div>
+<!--=================================
+        SUCCESS POPUP
+==================================-->
+
+<div id="popup">
+
+    <div class="popupBox">
+
+        <div class="popupEmoji">
+
+            🎉
+
+        </div>
+
+        <h2>
+
+            Gift Unlocked!
+
+        </h2>
+
+        <p>
+
+            Amazing ❤️<br><br>
+
+            You found all 3 magical keys.
+
+            <br>
+
+            Teddy can finally open the Birthday Gift.
+
+            <br><br>
+
+            Are you ready for the surprise? 🎁✨
+
+        </p>
+
+        <button id="openGift">
+
+            🎁 OPEN GIFT
+
+        </button>
+
+    </div>
+
+</div>
+
+<!--=================================
+        CONFETTI CONTAINER
+==================================-->
+
+<div id="confettiContainer"></div>
+
+<!--=================================
+        FOOTER
+==================================-->
+
+<footer class="gameFooter">
+
+    <p>
+
+        💖 Every key brings you closer to the Birthday Surprise 💖
+
+    </p>
+
+</footer>
+
+<!--=================================
+        AUDIO FILES
+==================================-->
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="keySound">
+    <source src="key.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="giftSound">
+    <source src="gift.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="winSound">
+    <source src="win.mp3" type="audio/mpeg">
+</audio>
+
+<!--=================================
+        JAVASCRIPT
+==================================-->
+
+<script src="game2.js"></script>
+
+</body>
+
+</html>

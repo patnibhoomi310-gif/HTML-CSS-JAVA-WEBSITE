@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Game 1 - Save Teddy ❤️</title>
+
+<link rel="stylesheet" href="game1.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!--=========================
+      INTRO SCREEN
+==========================-->
+
+<div id="introScreen">
+
+    <div class="introCard">
+
+        <div class="introTeddy">
+            🧸
+        </div>
+
+        <h1>Save Teddy ❤️</h1>
+
+        <p>
+
+            Oh no...!!
+
+            Teddy is trapped inside the Magical Forest.
+
+            Collect <b>10 Hearts ❤️</b> before the Monster catches Teddy.
+
+        </p>
+
+        <div class="controls">
+
+            <div class="controlBox">
+
+                ⬅️➡️⬆️⬇️
+
+                <span>
+                    Arrow Keys
+                </span>
+
+            </div>
+
+            <div class="controlBox">
+
+                ⌨️ W A S D
+
+                <span>
+                    Move Teddy
+                </span>
+
+            </div>
+
+        </div>
+
+        <button id="startBtn">
+
+            ❤️ START GAME ❤️
+
+        </button>
+
+    </div>
+
+</div>
+
+<!--=========================
+      BACKGROUND
+==========================-->
+
+<div class="background">
+
+    <div id="stars"></div>
+
+    <div id="particles"></div>
+
+</div>
+
+<!--=========================
+      GAME HUD
+==========================-->
+
+<div class="hud">
+
+    <div class="scoreBox">
+
+        ❤️ Hearts :
+        <span id="score">
+
+            0
+
+        </span>/10
+
+    </div>
+
+    <div class="levelBox">
+
+        LEVEL 1
+
+    </div>
+
+</div>
+<!--=========================
+        GAME AREA
+==========================-->
+
+<div id="gameArea">
+
+    <!-- Ground -->
+    <div class="ground"></div>
+
+    <!-- Teddy -->
+    <div id="teddy">
+
+        🧸
+
+    </div>
+
+    <!-- Monster -->
+    <div id="monster">
+
+        👾
+
+    </div>
+
+</div>
+
+<!--=========================
+      LEVEL COMPLETE POPUP
+==========================-->
+
+<div id="popup">
+
+    <div class="popupBox">
+
+        <div class="popupEmoji">
+
+            🎉
+
+        </div>
+
+        <h2>
+
+            Level Complete
+
+        </h2>
+
+        <p>
+
+            You collected all 10 Hearts ❤️
+
+            <br><br>
+
+            Teddy is safe!
+
+            <br>
+
+            Ready for the next challenge?
+
+        </p>
+
+        <button id="nextLevel">
+
+            ➜ NEXT LEVEL
+
+        </button>
+
+    </div>
+
+</div>
+
+<!--=========================
+        GAME OVER
+==========================-->
+
+<div id="gameOver">
+
+    <div class="popupBox">
+
+        <div class="popupEmoji">
+
+            💀
+
+        </div>
+
+        <h2>
+
+            Game Over
+
+        </h2>
+
+        <p>
+
+            Oh No!
+
+            <br>
+
+            The Monster caught Teddy.
+
+            <br><br>
+
+            Try Again ❤️
+
+        </p>
+
+        <button id="restartGame">
+
+            🔄 PLAY AGAIN
+
+        </button>
+
+    </div>
+
+</div>
+
+<!--=========================
+        GAME MESSAGE
+==========================-->
+
+<div id="gameMessage">
+
+    <div class="messageBox">
+
+        💖 Collect all Hearts before
+        the Monster catches Teddy!
+
+    </div>
+
+</div>
+
+<!--=========================
+        AUDIO
+==========================-->
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="heartSound">
+    <source src="heart.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="winSound">
+    <source src="win.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="loseSound">
+    <source src="lose.mp3" type="audio/mpeg">
+</audio>
+<!--=========================
+        LOADING SCREEN
+==========================-->
+
+<div id="loader">
+
+    <div class="loaderBox">
+
+        <div class="loaderTeddy">
+            🧸
+        </div>
+
+        <h2>Loading Magical Forest...</h2>
+
+        <div class="loadingBar">
+
+            <div class="loadingFill"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--=========================
+        FOOTER
+==========================-->
+
+<div class="gameFooter">
+
+    <p>
+        💖 Made with Love for Someone Special 💖
+    </p>
+
+</div>
+
+<!--=========================
+        JAVASCRIPT
+==========================-->
+
+<script src="game1.js"></script>
+
+</body>
+
+</html>
