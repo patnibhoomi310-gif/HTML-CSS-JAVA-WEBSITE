@@ -1,0 +1,659 @@
+/* ===================================================
+   GALLERY PAGE - PART 1
+=================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body.memory-page{
+
+    min-height:100vh;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+
+    background:linear-gradient(135deg,#ffd6e7,#ffe9f3,#fff6fb);
+
+    text-align:center;
+
+    position:relative;
+
+}
+
+/* =========================
+        TITLE
+========================= */
+
+.title{
+
+    margin-top:40px;
+
+    font-size:55px;
+
+    color:#ff2f73;
+
+    font-family:'Great Vibes',cursive;
+
+    text-shadow:2px 2px 10px rgba(255,0,100,.2);
+
+}
+
+.subtitle{
+
+    margin-top:10px;
+
+    color:#555;
+
+    font-size:20px;
+
+    margin-bottom:40px;
+
+}
+
+/* =========================
+     FLOATING HEARTS
+========================= */
+
+.hearts{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+}
+
+.hearts span{
+
+    position:absolute;
+
+    bottom:-100px;
+
+    font-size:30px;
+
+    animation:floatHeart 12s linear infinite;
+
+    opacity:.8;
+
+}
+
+.hearts span:nth-child(1){
+
+    left:8%;
+
+    animation-delay:0s;
+
+}
+
+.hearts span:nth-child(2){
+
+    left:25%;
+
+    animation-delay:2s;
+
+}
+
+.hearts span:nth-child(3){
+
+    left:45%;
+
+    animation-delay:4s;
+
+}
+
+.hearts span:nth-child(4){
+
+    left:65%;
+
+    animation-delay:6s;
+
+}
+
+.hearts span:nth-child(5){
+
+    left:82%;
+
+    animation-delay:8s;
+
+}
+
+.hearts span:nth-child(6){
+
+    left:95%;
+
+    animation-delay:10s;
+
+}
+
+@keyframes floatHeart{
+
+    0%{
+
+        transform:translateY(0) rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(-120vh) rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/* =========================
+     ENVELOPE AREA
+========================= */
+
+.envelope-area{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:20px;
+
+}
+
+/* =========================
+      ENVELOPE
+========================= */
+
+.envelope{
+
+    position:relative;
+
+    width:340px;
+
+    height:220px;
+
+    margin:auto;
+
+    cursor:pointer;
+
+    perspective:1000px;
+
+}
+
+/* Envelope Body */
+
+.envelope .body{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+
+    height:160px;
+
+    background:#ff7aa8;
+
+    border-radius:0 0 20px 20px;
+
+    box-shadow:0 15px 30px rgba(255,20,100,.25);
+
+}
+
+/* Left Fold */
+
+.envelope .body::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:0;
+
+    height:0;
+
+    border-left:170px solid #ff95ba;
+
+    border-top:80px solid transparent;
+
+    border-bottom:80px solid transparent;
+
+}
+
+/* Right Fold */
+
+.envelope .body::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+
+    top:0;
+
+    width:0;
+
+    height:0;
+
+    border-right:170px solid #ff95ba;
+
+    border-top:80px solid transparent;
+
+    border-bottom:80px solid transparent;
+
+}
+
+/* Top Flap */
+
+.lid{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:0;
+
+    height:0;
+
+    border-left:170px solid transparent;
+
+    border-right:170px solid transparent;
+
+    border-top:120px solid #ff4f8c;
+
+    transform-origin:top;
+
+    transition:1s;
+
+    z-index:5;
+
+}
+
+/* Envelope Open */
+
+.envelope.open .lid{
+
+    transform:rotateX(180deg);
+
+}
+
+/* =========================
+       OPEN BUTTON
+========================= */
+
+#openBtn{
+
+    margin-top:40px;
+
+    padding:16px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#ff4d88;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:0 10px 25px rgba(255,0,120,.3);
+
+}
+
+#openBtn:hover{
+
+    transform:scale(1.08);
+
+    background:#ff0066;
+
+}
+
+/* =========================
+      MEMORY AREA
+========================= */
+
+.memory-container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:50px;
+
+    position:relative;
+
+    min-height:500px;
+
+}
+/* ===================================================
+   GALLERY PAGE - PART 2
+=================================================== */
+
+/* =========================
+        MEMORY CARD
+========================= */
+
+.memory-card{
+
+    position:absolute;
+
+    width:340px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:15px;
+
+    box-shadow:0 20px 40px rgba(255,20,100,.25);
+
+    display:none;
+
+    animation:cardOut .8s ease;
+
+    transition:.4s;
+
+}
+
+.memory-card.active{
+
+    display:block;
+
+}
+
+.memory-card img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+}
+
+.memory-card h2{
+
+    margin-top:15px;
+
+    color:#ff2f73;
+
+    font-size:24px;
+
+}
+
+.memory-card p{
+
+    margin-top:10px;
+
+    color:#666;
+
+    line-height:1.6;
+
+    font-size:16px;
+
+}
+
+/* Polaroid Effect */
+
+.memory-card::after{
+
+    content:"❤";
+
+    position:absolute;
+
+    top:12px;
+
+    right:15px;
+
+    font-size:22px;
+
+}
+
+/* Hover */
+
+.memory-card:hover{
+
+    transform:translateY(-8px) scale(1.03);
+
+    box-shadow:0 30px 60px rgba(255,20,100,.35);
+
+}
+
+/* Slide Animation */
+
+@keyframes cardOut{
+
+    0%{
+
+        opacity:0;
+
+        transform:translateY(150px) scale(.7);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+
+/* =========================
+        BUTTONS
+========================= */
+
+.buttons{
+
+    margin-top:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+#nextBtn,
+#giftBtn{
+
+    display:none;
+
+    padding:16px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#ff4d88;
+
+    color:#fff;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:0 10px 25px rgba(255,0,120,.25);
+
+}
+
+#nextBtn:hover,
+#giftBtn:hover{
+
+    transform:scale(1.08);
+
+    background:#ff0066;
+
+}
+
+/* =========================
+      CARD SHADOW GLOW
+========================= */
+
+.memory-card{
+
+    background:
+    linear-gradient(
+        white,
+        #fff7fb
+    );
+
+}
+
+/* =========================
+      SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff7aa8;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#ffe7f2;
+
+}
+
+/* =========================
+      RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.title{
+
+    font-size:42px;
+
+}
+
+.subtitle{
+
+    font-size:17px;
+
+    padding:0 15px;
+
+}
+
+.envelope{
+
+    width:280px;
+
+    height:180px;
+
+}
+
+.envelope .body{
+
+    height:130px;
+
+}
+
+.envelope .body::before{
+
+    border-left:140px solid #ff95ba;
+
+    border-top:65px solid transparent;
+
+    border-bottom:65px solid transparent;
+
+}
+
+.envelope .body::after{
+
+    border-right:140px solid #ff95ba;
+
+    border-top:65px solid transparent;
+
+    border-bottom:65px solid transparent;
+
+}
+
+.lid{
+
+    border-left:140px solid transparent;
+
+    border-right:140px solid transparent;
+
+    border-top:100px solid #ff4f8c;
+
+}
+
+.memory-card{
+
+    width:90%;
+
+}
+
+.memory-card img{
+
+    height:250px;
+
+}
+
+.buttons{
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+#nextBtn,
+#giftBtn{
+
+    width:90%;
+
+}
+
+}
